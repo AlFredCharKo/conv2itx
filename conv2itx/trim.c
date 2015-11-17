@@ -1,6 +1,6 @@
 //
 //  trim.c
-//  fftchi
+//  conv2itx
 //
 //  Created by Alexander Kompch on 09.06.15.
 //  Copyright (c) 2015 Alexander Kompch. All rights reserved.

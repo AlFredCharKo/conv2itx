@@ -1,13 +1,13 @@
 //
 //  structs.h
-//  fftchi
+//  conv2itx
 //
 //  Created by Alexander Kompch on 04.09.15.
 //  Copyright (c) 2015 Alexander Kompch. All rights reserved.
 //
 
-#ifndef fftchi_structs_h
-#define fftchi_structs_h
+#ifndef conv2itx_structs_h
+#define conv2itx_structs_h
 
 #include "defs.h"
 

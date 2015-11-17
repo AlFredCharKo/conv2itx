@@ -1,6 +1,6 @@
 //
 //  main.c
-//  fftchi
+//  conv2itx
 //
 //  Created by Alexander Kompch on 04.09.15.
 //  Copyright (c) 2015 Alexander Kompch. All rights reserved.
@@ -8,44 +8,31 @@
 
 #include "main.h"
 
-int main(int argc, const char * argv[]) {
-    char *prmfile=NULL;
+int main(int argc, const char* argv[]) {
+
     prms *pref=NULL;
     datatable *data=NULL;
+    char *prmfile=NULL;
     int i = 0;
     
-    printf("\n***   main:argc=%d", argc);
-    if (argc < 2) {
-        prmfile=calloc((strlen(DEFPARFILE)+1), sizeof(char));
-        if (prmfile == NULL) {
-            printf("\n***   main: malloc prmfile failed");
-            return EXIT_FAILURE;
-        }
-        printf("\n***   main: strlen('DEFPARFILE')*sizeof(char)=%zu",strlen(DEFPARFILE)*sizeof(char));
-        strcpy(prmfile,DEFPARFILE);
-    } else {
-        prmfile=calloc((strlen(argv[1])+1), sizeof(char));
-        if (prmfile == NULL) {
-            printf("\n***   main: malloc prmfile failed");
-            return EXIT_FAILURE;
-        }
-        printf("\n***   main: strlen(argv[1])*sizeof(char)=%zu",strlen(argv[1])*sizeof(char));
-        strcpy(prmfile,argv[1]);
-    }
+    prmfile = check_cmd_args(argc, argv);
+    check_null(prmfile, "main - prmfile");
     
     printf("\n***   main: parfile=%s",prmfile);
-    pref=read_prmfile(prmfile);
-    if (pref == NULL) {
-        printf("\n***   main: read_prmfile failed! Will exit!");
-        exit(EXIT_FAILURE);
-    }
-    free(prmfile);
     
-    data = read_data(pref);
+    pref=read_prmfile(prmfile);
+    check_null(pref, "main - pref");
     
     print_prms(pref);
     
-    write_itx(pref, data);
+    do_files();
+
+
+    
+    
+    
+    data = read_shimadzu_txt(pref);
+    write_shimadzu_itx(pref, data);
     
 
 

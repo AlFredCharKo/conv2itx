@@ -1,13 +1,13 @@
 //
-//  read_chidat.h
-//  fftchi
+//  read_shimadzu_txt.h
+//  conv2itx
 //
 //  Created by Alexander Kompch on 07.09.15.
 //  Copyright (c) 2015 Alexander Kompch. All rights reserved.
 //
 
-#ifndef __fftchi__read_chidat__
-#define __fftchi__read_chidat__
+#ifndef __conv2itx__read_shimadzu_txt__
+#define __conv2itx__read_shimadzu_txt__
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,5 +18,5 @@
 #include "trim.h"
 #include "repl_comma.h"
 
-datatable* read_data(prms* pref);
-#endif /* defined(__fftchi__read_chidat__) */
+datatable* read_shimadzu_txt(prms* pref);
+#endif /* defined(__conv2itx__read_shimadzu_txt__) */

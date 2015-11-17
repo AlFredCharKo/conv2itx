@@ -1,14 +1,14 @@
 //
-//  read_chidat.c
-//  fftchi
+//  read_shimadzu_txt.c
+//  conv2itx
 //
 //  Created by Alexander Kompch on 07.09.15.
 //  Copyright (c) 2015 Alexander Kompch. All rights reserved.
 //
 
-#include "read_data.h"
+#include "read_shimadzu_txt.h"
 
-datatable* read_data(prms* pref) {
+datatable* read_shimadzu_txt(prms* pref) {
     datatable* data = NULL;
     FILE* FP;
     char buffer[MAX_LEN];

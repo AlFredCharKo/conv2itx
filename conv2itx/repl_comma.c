@@ -1,6 +1,6 @@
 //
 //  repl_comma.c
-//  read2itx
+//  conv2itx
 //
 //  Created by Alexander Kompch on 18.10.15.
 //  Copyright (c) 2015 Alexander Kompch. All rights reserved.

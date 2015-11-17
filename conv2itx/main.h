@@ -1,27 +1,29 @@
 //
 //  main.h
-//  fftchi
+//  conv2itx
 //
 //  Created by Alexander Kompch on 04.09.15.
 //  Copyright (c) 2015 Alexander Kompch. All rights reserved.
 //
 
-#ifndef __fftchi__main__
-#define __fftchi__main__
+#ifndef __conv2itx__main__
+#define __conv2itx__main__
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "structs.h"
 #include "defs.h"
+#include "check_null.h"
+#include "check_cmd_args.h"
 #include "read_prmfile.h"
 #include "print_prms.h"
-#include "read_data.h"
-#include "write_itx.h"
+#include "read_shimadzu_txt.h"
+#include "write_shimadzu_itx.h"
 
 
 
 
 int main(int argc, const char * argv[]);
 
-#endif /* defined(__fftchi__main__) */
+#endif /* defined(__conv2itx__main__) */

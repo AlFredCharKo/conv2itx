@@ -1,14 +1,14 @@
 //
-//  write_chiitx.c
-//  fftchi
+//  write_shimadzu_itx.c
+//  conv2itx
 //
 //  Created by Alexander Kompch on 10.09.15.
 //  Copyright (c) 2015 Alexander Kompch. All rights reserved.
 //
 
-#include "write_itx.h"
+#include "write_shimadzu_itx.h"
     
-int write_itx(prms *pref, datatable *data) {
+int write_shimadzu_itx(prms *pref, datatable *data) {
     
     int i = 0, n = 0, len1 = 0;
     FILE *FP = NULL;

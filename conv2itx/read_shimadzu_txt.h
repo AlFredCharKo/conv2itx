@@ -15,8 +15,9 @@
 #include <math.h>
 #include "structs.h"
 #include "defs.h"
+#include "check_null.h"
 #include "trim.h"
 #include "repl_comma.h"
 
-datatable* read_shimadzu_txt(prms* pref);
+datatable* read_shimadzu_txt(prms* temp);
 #endif /* defined(__conv2itx__read_shimadzu_txt__) */

@@ -25,14 +25,14 @@ int main(int argc, const char* argv[]) {
     
     print_prms(pref);
     
-    do_files();
+    do_files(pref);
 
 
     
     
     
-    data = read_shimadzu_txt(pref);
-    write_shimadzu_itx(pref, data);
+//    data = read_shimadzu_txt(pref);
+//    write_shimadzu_itx(pref, data);
     
 
 

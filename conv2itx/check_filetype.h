@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "defs.h"
+#include "check_null.h"
 
 int check_filetype(const char* filen);
 

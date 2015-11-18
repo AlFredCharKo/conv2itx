@@ -15,6 +15,11 @@ int check_filetype(const char* filen) {
     const char *suffix = NULL;
     char *filencpy = NULL;
     
+    if (filen == NULL) {
+        type = -1;
+        return type;
+    }
+    
     filenlen = strlen(filen);
     filencpy = calloc(filenlen+1, sizeof(char));  //helper copy of filen for case 3
     
@@ -47,5 +52,6 @@ int check_filetype(const char* filen) {
         suffix = &filen[filenlen-suffixlen];
         if (strcmp(suffix, FEFFXMU) == 0) type = 4;
     }
+    free(filencpy);
     return type;
 }

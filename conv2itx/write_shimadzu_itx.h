@@ -16,7 +16,7 @@
 #include "defs.h"
 #include "trim.h"
 
-int write_shimadzu_itx(prms *pref, datatable *data);
+int write_shimadzu_itx(prms* temp, datatable* data);
 
 
 #endif /* defined(__conv2itx__write_shimadzu_itx__) */

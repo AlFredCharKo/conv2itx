@@ -18,8 +18,7 @@
 #include "check_cmd_args.h"
 #include "read_prmfile.h"
 #include "print_prms.h"
-#include "read_shimadzu_txt.h"
-#include "write_shimadzu_itx.h"
+#include "do_files.h"
 
 
 

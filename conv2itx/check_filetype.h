@@ -14,6 +14,6 @@
 #include <string.h>
 #include "defs.h"
 
-int check_filetype(char* filen);
+int check_filetype(const char* filen);
 
 #endif /* defined(__conv2itx__check_filetype__) */

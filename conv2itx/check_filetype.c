@@ -9,41 +9,43 @@
 #include "check_filetype.h"
 
 
-int check_filetype(char* filen) {
-    int type = 0;
+int check_filetype(const char* filen) {
+    int type = -1;
     size_t suffixlen = 0, filenlen = 0;
-    char *suffix = NULL;
+    const char *suffix = NULL;
+    char *filencpy = NULL;
     
     filenlen = strlen(filen);
+    filencpy = calloc(filenlen+1, sizeof(char));  //helper copy of filen for case 3
+    
     
         //check case 1
     suffixlen = strlen(SHIMADZUTXT);
-    suffix = &filen[filenlen-suffixlen];
-    if (strcmp(suffix, SHIMADZUTXT) == 0) type = 1;
+    if (filenlen >= suffixlen) {
+        suffix = &filen[filenlen-suffixlen];
+        if (strcmp(suffix, SHIMADZUTXT) == 0) type = 1;
+    }
+
         //check case 2
     suffixlen = strlen(RMCPDF);
-    suffix = &filen[filenlen-suffixlen];
-    if (strcmp(suffix, RMCPDF) == 0) type = 2;
+    if (filenlen >= suffixlen) {
+        suffix = &filen[filenlen-suffixlen];
+        if (strcmp(suffix, RMCPDF) == 0) type = 2;
+    }
+
         //check case 3
-    suffixlen = strlen(RMCSPE)+1;
-    suffix = &filen[filenlen-suffixlen];
-    filen = strncpy(filen, suffix, suffixlen);
-    if (strcmp(filen, RMCSPE) == 0) type = 3;
+    suffixlen = strlen(RMCSPE);
+    if (filenlen >= suffixlen) {
+        suffix = &filen[filenlen-suffixlen-2];  //2 additional characters for .1 as in rmc.spe.1
+        filencpy = strncpy(filencpy, suffix, suffixlen);
+        if (strcmp(filencpy, RMCSPE) == 0) type = 3;
+    }
+    
         //check case 4
     suffixlen = strlen(FEFFXMU);
-    suffix = &filen[filenlen-suffixlen];
-    if (strcmp(suffix, FEFFXMU) == 0) type = 4;
-    
-    
+    if (filenlen >= suffixlen) {
+        suffix = &filen[filenlen-suffixlen];
+        if (strcmp(suffix, FEFFXMU) == 0) type = 4;
+    }
     return type;
 }
-
-
-
-//#define SHIMADZUTXT ".txt"
-//#define RMCPDF "rmc.pdf"
-//#define RMCSPE "rmc.spe"
-//#define FEFFXMU "xmu.dat"
-
-int len = strlen(str);
-const char *last_four = &str[len-4];

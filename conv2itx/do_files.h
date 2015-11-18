@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "defs.h"
 #include "structs.h"
+#include "print_prms.h"
 #include "check_filetype.h"
 #include "read_shimadzu_txt.h"
 #include "write_shimadzu_itx.h"

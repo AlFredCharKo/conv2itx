@@ -33,13 +33,17 @@ int write_shimadzu_itx(prms *pref, datatable *data) {
     
     
     //  File header
-    fprintf(FP, "IGOR\n");
-    fprintf(FP, "X // written by read2itx\n");
+    fprintf(FP, "IGOR");
+    fprintf(FP, "\nX // merged and averaged data of ***SHIMADZU UV-VIS*** type written by conv2itx");
+    fprintf(FP, "\nX // list of data files used:");
+    for (i=0; i<pref->nfiles; i++) {
+        fprintf(FP, "\nX // %s", pref->filelst[i]);
+    }
 //    fprintf(FP, "X // dattyp:%s\n", chidatf->dattyp);
     fprintf(FP,"\n");
     fprintf(FP,"X NewDataFolder/O/S root:%s\n", pref->meannm);
 
-    // Wava names
+    // Wave names
     fprintf(FP, "WAVES/D/O");
     for (n=0; n<pref->nfiles; n++) {
         if (n < pref->nfiles-1) {

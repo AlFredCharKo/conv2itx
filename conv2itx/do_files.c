@@ -14,6 +14,7 @@ void do_files(prms *pref) {
         //if shimadzu_txt file is encountered, all immeadiately following shimadzu_txt files will be read, averaged and written
         //to handle multiple sets of shimadzu_txt files, use dummy.file as seperating filename in filelst
     int i = 0, j = 0;
+    int sumofcases = 0;
     datatable *data = NULL;
     prms *temp = NULL;
 
@@ -22,7 +23,7 @@ void do_files(prms *pref) {
         switch (check_filetype(pref->filelst[i])) {
             case 1:
                     //Shimadzu file
-
+                sumofcases++;
                 temp = calloc(1, sizeof(prms));
                 temp->filelst = (char **)calloc(pref->nfiles, sizeof(*pref->filelst));//make a temporary prms structure with the needed info to read, convert and write
                 check_null(temp->filelst, "do_files - case 1 temp->filelst");
@@ -37,36 +38,36 @@ void do_files(prms *pref) {
                     //allocate more of the temp struct
                 temp->ndata = calloc(temp->nfiles, sizeof(int));
                 check_null(temp->ndata, "do_files - temp->ndata");
-                temp->outfile = pref->outfile;
-//                temp->outfile = calloc(strlen(pref->outfile)+1, sizeof(char));
-//                strcpy(temp->outfile, pref->outfile);
+                temp->meannm = pref->meannm;
+                temp->outfile = pref->outfile[sumofcases];
                 
-                printf("\ntemp-nfiles = %d", temp->nfiles);
-                i=j-1;
+                i=j-1;  //set i as if it had counted through the files itself
                 data = read_shimadzu_txt(temp);
+                print_prms(temp);
                 write_shimadzu_itx(temp, data);
                 free(data);
-//                for (n=0; n<temp->nfiles; n++) {
-//                    free(temp->filelst[n]);
-//                }
+
                 free(temp->filelst);
                 free(temp->ndata);
                 free(temp);
                 break;
 //            case 2:
 //                    //rmc.pdf file
+//                sumofcases++;
 //                data = read_rmcpdf(filename)
 //                write_rmcpdf_itx(data, outfile)
 //                free(data);
 //                break;
 //            case 3:
 //                    //rmc.spe file
+//                sumofcases++;
 //                data = read_rmcspe(filename)
 //                write_rmcspe_itx(data, outfile, spen)
 //                free(data);
 //                break;
 //            case 4:
 //                    //xmu.dat file
+//                sumofcases++;
 //                data = read_xmudat(filename)
 //                write_xmudat_itx(data, outfile)
 //                free(data);

@@ -14,7 +14,7 @@ void do_files(prms *pref) {
         //if shimadzu_txt file is encountered, all immeadiately following shimadzu_txt files will be read, averaged and written
         //to handle multiple sets of shimadzu_txt files, use dummy.file as seperating filename in filelst
     int i = 0, j = 0;
-    int sumofcases = 0;
+    int sumofcases = -1;
     datatable *data = NULL;
     prms *temp = NULL;
 
@@ -39,7 +39,7 @@ void do_files(prms *pref) {
                 temp->ndata = calloc(temp->nfiles, sizeof(int));
                 check_null(temp->ndata, "do_files - temp->ndata");
                 temp->meannm = pref->meannm;
-                temp->outfile = pref->outfile[sumofcases];
+                temp->afilename = pref->outfiles[sumofcases];
                 
                 i=j-1;  //set i as if it had counted through the files itself
                 data = read_shimadzu_txt(temp);

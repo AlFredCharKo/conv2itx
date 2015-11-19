@@ -37,18 +37,25 @@ int main(int argc, const char* argv[]) {
 
 
     free(data);
-    free(pref->outfile);
     free(pref->prmfile);
     free(pref->ndata);
     for (i=0; i<pref->nfiles; i++) {
         free(pref->filelst[i]);
     }
     free(pref->filelst);
+    for (i=0; i<pref->ncases; i++) {
+        free(pref->outfiles[i]);
+    }
+    free(pref->outfiles);
     free(pref);
 
-
     
+    printf("\ncount of lines from 5 to keyword END = %d", count_lines_to_keyword("test2.txt", 5, "END"));
     printf("\n");
+    
+    printf("\ncount of lines from 5 to first line without keychar as first character = %d", count_lines_with_keychar("test2.txt", 5, '#'));
+    printf("\n");
+    
     return EXIT_SUCCESS;
 }
 

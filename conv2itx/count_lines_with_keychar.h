@@ -16,6 +16,6 @@
 #include "check_null.h"
 #include "trim.h"
 
-int count_lines_to_keyword(const char* filename, int startline, const char keychar);
+int count_lines_with_keychar(const char* filename, int startline, const char keychar);
 
 #endif /* defined(__conv2itx__count_lines_with_keychar__) */

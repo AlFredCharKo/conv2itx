@@ -17,9 +17,9 @@ int write_shimadzu_itx(prms *pref, datatable *data) {
     printf("\n***   IN write_itx   ***\n");
 
 //  Make outfile string from pref->outfile
-    len1 = (int)strlen(pref->outfile) + (int)strlen(IGORENDING);
+    len1 = (int)strlen(pref->afilename) + (int)strlen(IGORENDING);
     outfile = calloc((len1+1), sizeof(char));
-    strcpy(outfile, pref->outfile);
+    strcpy(outfile, pref->afilename);
     strcat(outfile, IGORENDING);
     
     printf("\noutfile: %s", outfile);
@@ -27,7 +27,7 @@ int write_shimadzu_itx(prms *pref, datatable *data) {
     
     FP = fopen(outfile, "w");
     if (FP == NULL) {
-        printf("\nFile <%s> could not be opened! Will exit!", pref->outfile);
+        printf("\nFile <%s> could not be opened! Will exit!", pref->afilename);
         exit(EXIT_FAILURE);
     }
     

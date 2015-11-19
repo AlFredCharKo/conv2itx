@@ -15,7 +15,7 @@ prms* read_prmfile(char* prmfile)
     char *buffer_ptr=buffer;
     prms* pref = (prms *)malloc(sizeof(prms));
     check_null(pref, "read_prmfile - pref");
-    pref->outfile = NULL;
+    pref->outfiles = NULL;
     pref->filelst = NULL;
     pref->prmfile = NULL;
     FILE *FP;
@@ -31,6 +31,11 @@ prms* read_prmfile(char* prmfile)
     while ((buffer_ptr = fgets(buffer, MAX_LEN, FP)) != NULL) {
         line ++;
         if (line == 1) {
+            sscanf(buffer, "%d", &(pref->ncases));
+            pref->outfiles = calloc(pref->ncases, sizeof(*pref->outfiles));
+            check_null(pref->outfiles, "read_prmfile - pref->outfiles");
+            continue;
+        } else if (line == 2) {
             sscanf(buffer, "%d", &(pref->nfiles));
             pref->filelst = calloc(pref->nfiles, sizeof(*pref->filelst));
             check_null(pref->filelst, "read_prmfile - pref->filelst");
@@ -43,18 +48,24 @@ prms* read_prmfile(char* prmfile)
                 line++;
             }
             continue;
-        } else if (line == (2 + pref->nfiles)) {
+        } else if (line == (3 + pref->nfiles)) {
             buffer_ptr=trim(buffer_ptr);
             pref->meannm = calloc((strlen(buffer_ptr)+1), sizeof(char));
             check_null(pref->meannm, "read_prmfile - pref->meannm");
             strcpy(pref->meannm, buffer_ptr);
-        } else if (line == (3 + pref->nfiles)) {
-            buffer_ptr=trim(buffer_ptr);
-            pref->outfile = calloc((strlen(buffer_ptr)+1), sizeof(char));
-            check_null(pref->outfile, "read_prmfile - pref->outfile");
-            strcpy(pref->outfile, buffer_ptr);
+            continue;
+        } else if (line == (4 + pref->nfiles)) {
+            for (i=0; i<pref->ncases; i++) {
+                buffer_ptr=trim(buffer_ptr);
+                pref->outfiles[i] = calloc((strlen(buffer_ptr)+1), sizeof(char));
+                check_null(pref->outfiles[i], "read_prmfile - pref->outfiles[i]");
+                strcpy(pref->outfiles[i], buffer_ptr);
+                buffer_ptr = fgets(buffer, MAX_LEN, FP);
+                line++;
+                }
+            break;
+            }
         }
-    }
     
     pref->ndata = calloc(pref->nfiles, sizeof(int));
     check_null(pref->ndata, "read_prmfile - pref->ndata");

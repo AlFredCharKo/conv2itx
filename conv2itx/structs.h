@@ -14,13 +14,15 @@
 //typedefstructs
 typedef struct {
 //    char* infile;
+    int ncases;
     int nfiles;
     char** filelst;
     char* meannm;
-    char* outfile;
+    char** outfiles;
     //the following are not read from parfile
     int* ndata;
     int max;
+    char* afilename;
     char* prmfile;
 } prms;
 

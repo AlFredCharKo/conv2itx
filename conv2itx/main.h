@@ -19,6 +19,8 @@
 #include "read_prmfile.h"
 #include "print_prms.h"
 #include "do_files.h"
+#include "count_lines_to_keyword.h"
+#include "count_lines_with_keychar.h"
 
 
 

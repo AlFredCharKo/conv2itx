@@ -14,6 +14,7 @@
 #include <string.h>
 #include "defs.h"
 #include "check_null.h"
+#include "trim.h"
 
 int check_filetype(const char* filen);
 

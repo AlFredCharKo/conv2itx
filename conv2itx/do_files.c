@@ -45,8 +45,8 @@ void do_files(prms *pref) {
                 data = read_shimadzu_txt(temp);
                 print_prms(temp);
                 write_shimadzu_itx(temp, data);
+                    //end freeing every part of temp struct again, except for where the pointer from pref was copied!!!
                 free(data);
-
                 free(temp->filelst);
                 free(temp->ndata);
                 free(temp);
@@ -72,6 +72,9 @@ void do_files(prms *pref) {
 //                write_xmudat_itx(data, outfile)
 //                free(data);
 //                break;
+            case 99:
+                    //dummy.file file
+                break;
             case -1:
                     //check_filetype did not find a match
                 printf("\ndo_files: check_filetype - no match!");

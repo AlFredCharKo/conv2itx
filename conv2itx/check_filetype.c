@@ -52,6 +52,12 @@ int check_filetype(const char* filen) {
         suffix = &filen[filenlen-suffixlen];
         if (strcmp(suffix, FEFFXMU) == 0) type = 4;
     }
+    
+        //check case 99
+    filencpy = strncpy(filencpy, filen, strlen(filen));
+    if (strcmp(trim(filencpy), DUMMYFILE) == 0) type = 99;
+
+    
     free(filencpy);
     return type;
 }

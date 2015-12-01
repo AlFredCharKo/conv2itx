@@ -42,8 +42,7 @@ int write_xmudat_itx(prms *pref, datatable *data) {
     
         // Wave names
     fprintf(FP, "WAVES/D/O");
-        //    fprintf(FP, "%s\n", pdfWaveName(data->nColumns));
-    fprintf(FP, "\tk_vec,\tchi_exp,\tchi_fit,\tchi_diff\n");
+    fprintf(FP, "\tE_abs,\tE_rel,\tk_vec,\tmu,\tmu0,\tchi\n");
     fprintf(FP,"BEGIN\n");
     
         //Write data
@@ -57,10 +56,8 @@ int write_xmudat_itx(prms *pref, datatable *data) {
     fprintf(FP, "END\n");
     
         //Write IGOR commands
-    fprintf(FP, "X Preferences 0;Display chi_exp vs k_vec as \"%s\"\n", pref->afilename);
-        //    fprintf(FP, "%s\n", pdfAppendGraph(data->nColumns));
-    fprintf(FP, "X AppendToGraph chi_fit,chi_diff vs k_vec\n");
-    fprintf(FP, "X EXAFS_chi_def();Preferences 1\n");
+    fprintf(FP, "X Preferences 0;Display mu vs E_rel as \"%s\"\n", pref->afilename);
+    fprintf(FP, "X EXAFS_xan_def();Preferences 1\n");
     
     fclose(FP);
     free(outfile);

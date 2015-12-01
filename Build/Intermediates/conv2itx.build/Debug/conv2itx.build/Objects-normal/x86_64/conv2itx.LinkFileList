@@ -2,6 +2,7 @@
 /Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/pdfAppendGraph.o
 /Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/do_files.o
 /Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/read_rmcpdf.o
+/Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/write_xmudat_itx.o
 /Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/main.o
 /Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/read_shimadzu_txt.o
 /Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/check_null.o
@@ -9,10 +10,13 @@
 /Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/read_prmfile.o
 /Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/write_shimadzu_itx.o
 /Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/countDoubleBlanksInLine.o
+/Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/write_rmcspe_itx.o
 /Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/count_lines_with_keychar.o
 /Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/repl_comma.o
+/Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/read_rmcspe.o
 /Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/print_prms.o
 /Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/check_cmd_args.o
+/Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/read_xmudat.o
 /Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/trim.o
 /Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/count_lines_to_keyword.o
 /Users/akompch/Desktop/Programming/conv2itx/Build/Intermediates/conv2itx.build/Debug/conv2itx.build/Objects-normal/x86_64/check_filetype.o

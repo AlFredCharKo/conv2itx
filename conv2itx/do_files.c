@@ -55,14 +55,15 @@ void do_files(prms *pref) {
             case 2:
                     //rmc.pdf file
                 sumofcases++;
+                
                 temp = calloc(1, sizeof(prms));
                 check_null(temp, "do_files - case 2 temp");
                 
                 temp->filelst = (char **)calloc(1, sizeof(*pref->filelst));
                 check_null(temp->filelst, "do_files - case 2 temp->filelst");
+                
                 temp->filelst[0] = pref->filelst[i];
                 temp->nfiles = 1;
-            
                 temp->afilename = pref->outfiles[sumofcases];
                 
                 data = read_rmcpdf(temp);
@@ -74,20 +75,52 @@ void do_files(prms *pref) {
                 free(temp->ndata);
                 free(temp);
                 break;
-//            case 3:
-//                    //rmc.spe file
-//                sumofcases++;
-//                data = read_rmcspe(filename)
-//                write_rmcspe_itx(data, outfile, spen)
-//                free(data);
-//                break;
-//            case 4:
-//                    //xmu.dat file
-//                sumofcases++;
-//                data = read_xmudat(filename)
-//                write_xmudat_itx(data, outfile)
-//                free(data);
-//                break;
+            case 3:
+                    //rmc.spe file
+                sumofcases++;
+                
+                temp = calloc(1, sizeof(prms));
+                check_null(temp, "do_files - case 2 temp");
+                
+                temp->filelst = (char **)calloc(1, sizeof(*pref->filelst));
+                check_null(temp->filelst, "do_files - case 3 temp->filelst");
+                
+                temp->filelst[0] = pref->filelst[i];
+                temp->nfiles = 1;
+                temp->afilename = pref->outfiles[sumofcases];
+                
+                data = read_rmcspe(temp);
+                print_prms(temp);
+                write_rmcspe_itx(temp, data);
+                free(data->x);
+                free(data);
+                free(temp->filelst);
+                free(temp->ndata);
+                free(temp);
+                break;
+            case 4:
+                    //xmu.dat file
+                sumofcases++;
+                
+                temp = calloc(1, sizeof(prms));
+                check_null(temp, "do_files - case 2 temp");
+                
+                temp->filelst = (char **)calloc(1, sizeof(*pref->filelst));
+                check_null(temp->filelst, "do_files - case 3 temp->filelst");
+                
+                temp->filelst[0] = pref->filelst[i];
+                temp->nfiles = 1;
+                temp->afilename = pref->outfiles[sumofcases];
+                
+                data = read_xmudat(temp);
+                print_prms(temp);
+                write_xmudat_itx(temp, data);
+                free(data->x);
+                free(data);
+                free(temp->filelst);
+                free(temp->ndata);
+                free(temp);
+                break;
             case 99:
                     //dummy.file file
                 break;

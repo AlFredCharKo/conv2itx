@@ -18,6 +18,10 @@
 #include "write_shimadzu_itx.h"
 #include "read_rmcpdf.h"
 #include "write_rmcpdf_itx.h"
+#include "read_rmcspe.h"
+#include "write_rmcspe_itx.h"
+#include "read_xmudat.h"
+#include "write_xmudat_itx.h"
 
 void do_files(prms *pref);
 

@@ -12,6 +12,10 @@
 		4A4E211D1C0C829500A94F57 /* countBlanksInLine.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E211B1C0C829500A94F57 /* countBlanksInLine.c */; };
 		4A4E21201C0CB73A00A94F57 /* pdfWaveName.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E211E1C0CB73A00A94F57 /* pdfWaveName.c */; };
 		4A4E21231C0CCEDF00A94F57 /* pdfAppendGraph.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E21211C0CCEDF00A94F57 /* pdfAppendGraph.c */; };
+		4A4E21261C0D578700A94F57 /* read_rmcspe.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E21241C0D578700A94F57 /* read_rmcspe.c */; };
+		4A4E21291C0D57B500A94F57 /* write_rmcspe_itx.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E21271C0D57B500A94F57 /* write_rmcspe_itx.c */; };
+		4A4E212C1C0D685400A94F57 /* read_xmudat.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E212A1C0D685400A94F57 /* read_xmudat.c */; };
+		4A4E212F1C0D687000A94F57 /* write_xmudat_itx.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E212D1C0D687000A94F57 /* write_xmudat_itx.c */; };
 		4A81A3291BFB6C4200B8B9AD /* check_cmd_args.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A81A3271BFB6C4200B8B9AD /* check_cmd_args.c */; };
 		4A81A32C1BFB72A500B8B9AD /* check_null.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A81A32A1BFB72A500B8B9AD /* check_null.c */; };
 		4A81A32F1BFB811200B8B9AD /* do_files.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A81A32D1BFB811200B8B9AD /* do_files.c */; };
@@ -52,6 +56,14 @@
 		4A4E211F1C0CB73A00A94F57 /* pdfWaveName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pdfWaveName.h; sourceTree = "<group>"; };
 		4A4E21211C0CCEDF00A94F57 /* pdfAppendGraph.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pdfAppendGraph.c; sourceTree = "<group>"; };
 		4A4E21221C0CCEDF00A94F57 /* pdfAppendGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pdfAppendGraph.h; sourceTree = "<group>"; };
+		4A4E21241C0D578700A94F57 /* read_rmcspe.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = read_rmcspe.c; sourceTree = "<group>"; };
+		4A4E21251C0D578700A94F57 /* read_rmcspe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = read_rmcspe.h; sourceTree = "<group>"; };
+		4A4E21271C0D57B500A94F57 /* write_rmcspe_itx.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = write_rmcspe_itx.c; sourceTree = "<group>"; };
+		4A4E21281C0D57B500A94F57 /* write_rmcspe_itx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = write_rmcspe_itx.h; sourceTree = "<group>"; };
+		4A4E212A1C0D685400A94F57 /* read_xmudat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = read_xmudat.c; sourceTree = "<group>"; };
+		4A4E212B1C0D685400A94F57 /* read_xmudat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = read_xmudat.h; sourceTree = "<group>"; };
+		4A4E212D1C0D687000A94F57 /* write_xmudat_itx.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = write_xmudat_itx.c; sourceTree = "<group>"; };
+		4A4E212E1C0D687000A94F57 /* write_xmudat_itx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = write_xmudat_itx.h; sourceTree = "<group>"; };
 		4A81A3271BFB6C4200B8B9AD /* check_cmd_args.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = check_cmd_args.c; sourceTree = "<group>"; };
 		4A81A3281BFB6C4200B8B9AD /* check_cmd_args.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = check_cmd_args.h; sourceTree = "<group>"; };
 		4A81A32A1BFB72A500B8B9AD /* check_null.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = check_null.c; sourceTree = "<group>"; };
@@ -139,6 +151,14 @@
 				4A81A3391BFE351700B8B9AD /* read_rmcpdf.c */,
 				4A81A33D1BFE352D00B8B9AD /* write_rmcpdf_itx.h */,
 				4A81A33C1BFE352D00B8B9AD /* write_rmcpdf_itx.c */,
+				4A4E21251C0D578700A94F57 /* read_rmcspe.h */,
+				4A4E21241C0D578700A94F57 /* read_rmcspe.c */,
+				4A4E21281C0D57B500A94F57 /* write_rmcspe_itx.h */,
+				4A4E21271C0D57B500A94F57 /* write_rmcspe_itx.c */,
+				4A4E212B1C0D685400A94F57 /* read_xmudat.h */,
+				4A4E212A1C0D685400A94F57 /* read_xmudat.c */,
+				4A4E212E1C0D687000A94F57 /* write_xmudat_itx.h */,
+				4A4E212D1C0D687000A94F57 /* write_xmudat_itx.c */,
 				4A4E211F1C0CB73A00A94F57 /* pdfWaveName.h */,
 				4A4E211E1C0CB73A00A94F57 /* pdfWaveName.c */,
 				4A4E21221C0CCEDF00A94F57 /* pdfAppendGraph.h */,
@@ -223,6 +243,7 @@
 				4A4E21231C0CCEDF00A94F57 /* pdfAppendGraph.c in Sources */,
 				4A81A32F1BFB811200B8B9AD /* do_files.c in Sources */,
 				4A81A33B1BFE351700B8B9AD /* read_rmcpdf.c in Sources */,
+				4A4E212F1C0D687000A94F57 /* write_xmudat_itx.c in Sources */,
 				4ADAFFF11BE28D45006686D0 /* main.c in Sources */,
 				4ADAFFF31BE28D45006686D0 /* read_shimadzu_txt.c in Sources */,
 				4A81A32C1BFB72A500B8B9AD /* check_null.c in Sources */,
@@ -230,10 +251,13 @@
 				4ADAFFF21BE28D45006686D0 /* read_prmfile.c in Sources */,
 				4ADAFFF51BE28D45006686D0 /* write_shimadzu_itx.c in Sources */,
 				4A4E21171C0A2E2E00A94F57 /* countDoubleBlanksInLine.c in Sources */,
+				4A4E21291C0D57B500A94F57 /* write_rmcspe_itx.c in Sources */,
 				4A81A3381BFDD40400B8B9AD /* count_lines_with_keychar.c in Sources */,
 				4ADAFFF71BE28D45006686D0 /* repl_comma.c in Sources */,
+				4A4E21261C0D578700A94F57 /* read_rmcspe.c in Sources */,
 				4ADAFFF41BE28D45006686D0 /* print_prms.c in Sources */,
 				4A81A3291BFB6C4200B8B9AD /* check_cmd_args.c in Sources */,
+				4A4E212C1C0D685400A94F57 /* read_xmudat.c in Sources */,
 				4ADAFFF61BE28D45006686D0 /* trim.c in Sources */,
 				4A81A3351BFDD37900B8B9AD /* count_lines_to_keyword.c in Sources */,
 				4A81A3321BFB87EF00B8B9AD /* check_filetype.c in Sources */,

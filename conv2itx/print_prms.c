@@ -20,9 +20,11 @@ int print_prms(prms* pref)
         printf("\ndata file #%3d: %s contains %3d data points", i+1, pref->filelst[i], pref->ndata[i]);
     }
     printf("\nndata max: %3d", pref->max);
-    printf("\nnumber of output files: %3d", pref->ncases);
-    for (i=0; i<pref->ncases; i++) {
-        printf("\noutput filen #%3d: %s", i+1, pref->outfiles[i]);
+    if (pref->ncases > 0) {
+        printf("\nnumber of output files: %3d", pref->ncases);
+        for (i=0; i<pref->ncases; i++) {
+            printf("\noutput filen #%3d: %s", i+1, pref->outfiles[i]);
+        }
     }
 
     printf("\n");

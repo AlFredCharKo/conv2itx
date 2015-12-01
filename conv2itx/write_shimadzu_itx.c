@@ -41,7 +41,7 @@ int write_shimadzu_itx(prms *pref, datatable *data) {
     }
 //    fprintf(FP, "X // dattyp:%s\n", chidatf->dattyp);
     fprintf(FP,"\n");
-    fprintf(FP,"X NewDataFolder/O/S root:%s\n", pref->meannm);
+    fprintf(FP,"X NewDataFolder/O/S root:%s\n", pref->afilename);
 
     // Wave names
     fprintf(FP, "WAVES/D/O");
@@ -62,9 +62,9 @@ int write_shimadzu_itx(prms *pref, datatable *data) {
     for (n=0; n<pref->max; n++) {
         for (i=0; i<pref->nfiles; i++) {
 
-            fprintf(FP,"%20.6f %20.6f", data->x[2*i][n], data->x[2*i+1][n]);
+            fprintf(FP,"%20.6f %20.6f", data->x[m_elem(data, n, 2*i)], data->x[m_elem(data, n, 2*i+1)]);
         }
-        fprintf(FP,"%20.6f\n", data->x[((2 * pref->nfiles))][n]);
+        fprintf(FP,"%20.6f\n", data->x[m_elem(data, n, 2*pref->nfiles)]);
 
     }
     fprintf(FP, "END\n");

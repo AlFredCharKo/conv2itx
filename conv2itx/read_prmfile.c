@@ -78,13 +78,15 @@ prms* read_prmfile(char* prmfile)
 /*
 
  typedef struct {
+ int ncases;
  int nfiles;
  char** filelst;
  char* meannm;
- char* outfile;
+ char** outfiles;
  //the following are not read from parfile
  int* ndata;
  int max;
+ char* afilename;
  char* prmfile;
  } prms;
  

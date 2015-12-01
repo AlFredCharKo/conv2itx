@@ -13,7 +13,6 @@
 
 //typedefstructs
 typedef struct {
-//    char* infile;
     int ncases;
     int nfiles;
     char** filelst;
@@ -27,22 +26,9 @@ typedef struct {
 } prms;
 
 typedef struct {
-    double** x;
+    int nColumns;
+    int nRows;
+    double* x;
 } datatable;
-
-typedef struct {
-    char nmu[CNML + 1];
-    char nmv[CNML + 1];
-    char nmw[CNML + 1];
-    char nmx[CNML + 1];
-    char nmy[CNML + 1];
-    int ndata;
-    int ndata_lim;
-    char dattyp[4];
-    datatable *dat;
-} datfilestruct;
-
-
-
 
 #endif

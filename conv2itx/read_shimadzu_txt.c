@@ -13,53 +13,39 @@ datatable* read_shimadzu_txt(prms* temp) {
     FILE* FP;
     char buffer[MAX_LEN];
     char *buffer_ptr = buffer;
-    int line = 0, ct = 0;
+    int line = 0;
     int i=0, n= 0, max = 0;
     double sum = 0.0;
     printf("\n");
     data = calloc(1, sizeof(datatable));
 
-//calloc for +1 to store average of data
-    data->x = calloc(((2 * temp->nfiles) + 1), sizeof(double*));
-
     for (i=0; i<temp->nfiles; i++) {
         FP=fopen(temp->filelst[i], "rt");
         check_null(FP, "read_shimadzu_txt - cannot open file");
-
-        ct = 0;
+        
         line = 0;
         while ((buffer_ptr = fgets(buffer, MAX_LEN, FP)) != NULL) {
             line ++;
-            if (!strncmp("#", buffer, 1)) {
-                ct++;
-            }
         }
+        
         //header lines to skip in spec files -> .txt
         //are 2 and do not start with '#'
-        temp->ndata[i] = line - ct - 2;
+        temp->ndata[i] = line - 2;
         if (temp->ndata[i]>max) {
             max = temp->ndata[i];
         }
-
         fclose(FP);
-  
     }
 
     temp->max = max;
     
-    //average spalte als letzte
-    data->x[((2 * temp->nfiles))] = calloc(temp->max, sizeof(double));
-    check_null(data->x[2*temp->nfiles], "read_shimadzu_txt - data->x[2*temp->nfiles]");
+    data->x=calloc(((2 * temp->nfiles) + 1) * max, sizeof(double));
+    check_null(data->x, "read_shimadzu_txt - data->x[2*temp->nfiles]");
+    data->nRows = max;
+    data->nColumns = (2 * temp->nfiles) + 1;
 
     
     for (i=0; i<temp->nfiles; i++) {
-
-            //allocate space for data
-        data->x[2*i] = calloc(temp->max, sizeof(double));
-        check_null(data->x[2*i], "read_shimadzu_txt - data->x[2*i]");
-        data->x[2*i+1] = calloc(temp->max, sizeof(double));
-        check_null(data->x[2*i+1], "read_shimadzu_txt - data->x[2*i+1]");
-        
         FP=fopen(temp->filelst[i], "rt");
         check_null(FP, "read_shimadzu_txt - cannot open file");
         line = 0;
@@ -68,22 +54,23 @@ datatable* read_shimadzu_txt(prms* temp) {
         while ((buffer_ptr = fgets(buffer, MAX_LEN, FP)) != NULL) {
             line++;
             if (line > 2) {
-
                 buffer_ptr=trim(buffer_ptr);
                 buffer_ptr=repl_comma(buffer_ptr);
-                sscanf(buffer, "%lf %lf", &data->x[2*i][n], &data->x[2*i+1][n]);
+                sscanf(buffer, "%lf %lf", &data->x[m_elem(data, n, 2*i)], &data->x[m_elem(data, n, 2*i+1)]);
                 n++;
             }
         }
         temp->max = n;
         fclose(FP);
     }
+    
+        //sum up and average per row for last column
     for (n=0; n<max; n++) {
         sum = 0.0;
         for (i=0; i<temp->nfiles; i++) {
-            sum = sum + data->x[2*i+1][n];
+            sum = sum + data->x[m_elem(data, n, 2*i+1)];
         }
-        data->x[((2 * temp->nfiles))][n] = sum / (double)temp->nfiles;
+        data->x[m_elem(data, n, 2 * temp->nfiles)] = sum / (double)temp->nfiles;
     }
     
     free(buffer_ptr);

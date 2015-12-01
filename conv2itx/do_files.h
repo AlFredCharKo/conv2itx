@@ -16,6 +16,8 @@
 #include "check_filetype.h"
 #include "read_shimadzu_txt.h"
 #include "write_shimadzu_itx.h"
+#include "read_rmcpdf.h"
+#include "write_rmcpdf_itx.h"
 
 void do_files(prms *pref);
 

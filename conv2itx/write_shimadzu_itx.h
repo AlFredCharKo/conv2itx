@@ -15,6 +15,7 @@
 #include "structs.h"
 #include "defs.h"
 #include "trim.h"
+#include "m_elem.h"
 
 int write_shimadzu_itx(prms* temp, datatable* data);
 

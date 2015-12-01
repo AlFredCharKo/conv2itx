@@ -30,7 +30,7 @@ void do_files(prms *pref) {
                 
                 temp->filelst[0] = pref->filelst[i];
                 j=i+1;  //check next file and following as long as filetype == 1
-                while (check_filetype(pref->filelst[j]) == 1) {
+                while (j < pref->nfiles && check_filetype(pref->filelst[j]) == 1) {
                     temp->filelst[j-i] = pref->filelst[j];
                     j++;
                 }
@@ -46,18 +46,33 @@ void do_files(prms *pref) {
                 print_prms(temp);
                 write_shimadzu_itx(temp, data);
                     //end freeing every part of temp struct again, except for where the pointer from pref was copied!!!
+                free(data->x);
                 free(data);
                 free(temp->filelst);
                 free(temp->ndata);
                 free(temp);
                 break;
-//            case 2:
-//                    //rmc.pdf file
-//                sumofcases++;
-//                data = read_rmcpdf(filename)
-//                write_rmcpdf_itx(data, outfile)
-//                free(data);
-//                break;
+            case 2:
+                    //rmc.pdf file
+                sumofcases++;
+                temp = calloc(1, sizeof(prms));
+                check_null(temp, "do_files - case 2 temp");
+                
+                temp->filelst = (char **)calloc(1, sizeof(*pref->filelst));
+                check_null(temp->filelst, "do_files - case 2 temp->filelst");
+                temp->filelst[0] = pref->filelst[i];
+                temp->nfiles = 1;
+            
+                temp->afilename = pref->outfiles[sumofcases];
+                
+                data = read_rmcpdf(temp);
+                write_rmcpdf_itx(temp, data);
+                free(data->x);
+                free(data);
+                free(temp->filelst);
+                free(temp->ndata);
+                free(temp);
+                break;
 //            case 3:
 //                    //rmc.spe file
 //                sumofcases++;

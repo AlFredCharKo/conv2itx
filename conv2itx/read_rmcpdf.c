@@ -36,7 +36,6 @@ datatable* read_rmcpdf(prms* temp) {
         line ++;
     }
     
-    printf("\n# of rows = %d\t# of columns = %d", line, nColumns);
     
     //    callocate memory for a datatable of size datable.x[column=nColumns][row=line]
     data = calloc(1, sizeof(datatable));
@@ -44,33 +43,19 @@ datatable* read_rmcpdf(prms* temp) {
     data->nRows = line;
     data->x = calloc(nColumns * line, sizeof(double));
     
+    temp->ndata = calloc(1, sizeof(int));
+    temp->ndata[0]=data->nRows;
+    temp->max=data->nRows;
+    
     rewind(FP);
     line = 0;
     
-    //  Create format string for sscanf into x
-    //  snprintf(fmt_str, 99, "%%%d.6E\t%%%d.6E\t%%%d.6E\t%%%d.6E\t%%%d.6E\n", CNML, CNML, CNML, CNML, CNML);
-    
-        //    while ((buffer_ptr = fgets(buffer, MAX_LEN, FP)) != NULL) {
     for (line = 0; line < data->nRows; line++) {
-            //        printf("\nline: %3d\tbuffer: [%s]", line, buffer);
         for (i = 0; i < nColumns; i++) {
             fscanf(FP, "%lf", &data->x[m_elem(data, line, i)]);
-                //            printf("data->x[m_elem(*m,%3d,%2d]=%10.6E\n", line, i, data->x[m_elem(data, line, i)]);
         }
-            //       printf("\n");
     }
-    
 
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
     fclose(FP);
     return data;
 }

@@ -10,10 +10,6 @@
 
 
 int write_rmcpdf_itx(prms *pref, datatable *data) {
-    printf("\nwrite_rmcpdf_itx - outfile = [%s]", pref->afilename);
-    
-    
-    
     int i = 0, j = 0, len1 = 0;
     FILE *FP = NULL;
     char *outfile = NULL;
@@ -27,8 +23,7 @@ int write_rmcpdf_itx(prms *pref, datatable *data) {
     strcat(outfile, IGORENDING);
     
     printf("\noutfile: %s", outfile);
-    
-    
+        
     FP = fopen(outfile, "w");
     if (FP == NULL) {
         printf("\nFile <%s> could not be opened! Will exit!", pref->afilename);

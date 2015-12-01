@@ -24,8 +24,6 @@ const char* pdfAppendGraph(int i) {
     
     npdf = (i - 1) / 2;     //determine # of pdfs from i
 
-    
-    printf("\nnpdf = %d", npdf);
     switch (npdf) {
         case 1:
             return appendstr[0];

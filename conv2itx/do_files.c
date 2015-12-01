@@ -66,6 +66,7 @@ void do_files(prms *pref) {
                 temp->afilename = pref->outfiles[sumofcases];
                 
                 data = read_rmcpdf(temp);
+                print_prms(temp);
                 write_rmcpdf_itx(temp, data);
                 free(data->x);
                 free(data);
